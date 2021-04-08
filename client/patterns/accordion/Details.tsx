@@ -1,9 +1,9 @@
 /**
  * A collection of popular layouts and patterns made with CSS (https://csslayout.io)
- * (c) 2019 - 2020 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
+ * (c) 2019 - 2021 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
  */
 
-import React, { useState } from 'react';
+import * as React from 'react';
 import { Helmet } from 'react-helmet';
 
 import RelatedPatterns from '../../components/RelatedPatterns';
@@ -20,7 +20,7 @@ interface ItemProps {
 }
 
 const Details: React.FC<{}> = () => {
-    const [activeItem, setActiveItem] = useState(1);
+    const [activeItem, setActiveItem] = React.useState(1);
 
     const Item: React.FC<ItemProps> = ({ index, title, children }) => {
         const isOpened = (index === activeItem);
@@ -57,96 +57,31 @@ const Details: React.FC<{}> = () => {
     };
 
     return (
-        <DetailsLayout title="Accordion">
+        <DetailsLayout pattern={Pattern.Accordion}>
             <Helmet>
                 <meta name="description" content="Create an accordion with CSS flexbox" />
                 <meta name="keywords" content="css accordion, css flexbox" />
             </Helmet>
             <div className='p-8 pb-20'>
                 <BrowserFrame
-                    content={(
-                        <div
-                            style={{
-                                alignItems: 'center',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                height: '100%',
-                                justifyContent: 'center',
-                                padding: '8px',
-                            }}
-                        >
-                            <div
-                                style={{
-                                    border: '1px solid rgba(0, 0, 0, 0.3)',
-                                    borderBottomColor: 'transparent',
-                                    borderRadius: '4px',
-                                    width: '60%',
-                                }}
-                            >
-                                <Item
-                                    index={0}
-                                    title={<div style={{ width: '40%' }}><Rectangle /></div>}
-                                >
-                                    <div style={{ marginBottom: '16px' }}><Block numberOfBlocks={10} /></div>
-                                </Item>
-                                <Item
-                                    index={1}
-                                    title={<div style={{ width: '80%' }}><Rectangle /></div>}
-                                >
-                                    <div style={{ marginBottom: '16px' }}><Block numberOfBlocks={15} /></div>
-                                </Item>
-                                <Item
-                                    index={2}
-                                    title={<div style={{ width: '60%' }}><Rectangle /></div>}
-                                >
-                                    <div style={{ marginBottom: '16px' }}><Block numberOfBlocks={10} /></div>
-                                </Item>
-                            </div>
-                        </div>
-                    )}
-                    source={`
+html={`
 <!-- Container -->
-<div style="
-    /* Border */
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    border-bottom-color: transparent;
-    border-radius: 4px;
-">
+<div class="accordion">
     <!-- Each accordion item -->
-    <div style="
-        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-    ">
+    <div class="accordion__item">
         <!-- Heading -->
-        <div style="
-            /* Center the content horizontally */
-            align-items: center;
-            display: flex;
-
-            cursor: pointer;
-            padding: 16px;
-        ">
+        <div class="accordion__header">
             <!-- The toggle icon -->
-            <div style="margin-right: 12px;">...</div>
+            <div class="accordion__toggle">...</div>
 
             <!-- The title -->
-            <div style="
-                flex: 1; /* Take remaining width */
-            ">
+            <div class="accordion__title">
                 ...
             </div>
         </div>
 
         <!-- The content -->
-        <div style="
-            /* For selected item */
-            display: block;
-
-            /* For not selected item */
-            display: none;
-
-            border-top: 1px solid rgba(0, 0, 0, 0.3);
-            padding: 16px;
-        ">
+        <div class="accordion__content">
             ...
         </div>
     </div>
@@ -154,28 +89,90 @@ const Details: React.FC<{}> = () => {
     <!-- Repeat other item -->
     ...
 </div>
-
-
-<div style="
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-">
-    <!-- Heading -->
-    <div style="
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    ">
-        <!-- Question -->
-        ...
-
-        <!-- The toggle icon sticks to the right -->
-        ...
-    </div>
-
-    <!-- Answer -->
-</div>
 `}
-                />
+css={`
+.accordion {
+    /* Border */
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-bottom-color: transparent;
+    border-radius: 4px;
+}
+
+.accordion__item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.accordion__header {
+    /* Center the content horizontally */
+    align-items: center;
+    display: flex;
+
+    cursor: pointer;
+    padding: 16px;
+}
+
+.accordion__toggle {
+    margin-right: 12px;
+}
+
+.accordion__title {
+    /* Take remaining width */
+    flex: 1;
+}
+
+.accordion__content {
+    /* For not selected item */
+    display: none;
+
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 16px;
+}
+
+.accordion__content--selected {
+    /* For selected item */
+    display: block;
+}
+`}
+                >
+                    <div
+                        style={{
+                            alignItems: 'center',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            height: '100%',
+                            justifyContent: 'center',
+                            padding: '8px',
+                        }}
+                    >
+                        <div
+                            style={{
+                                border: '1px solid rgba(0, 0, 0, 0.3)',
+                                borderBottomColor: 'transparent',
+                                borderRadius: '4px',
+                                width: '60%',
+                            }}
+                        >
+                            <Item
+                                index={0}
+                                title={<div style={{ width: '40%' }}><Rectangle /></div>}
+                            >
+                                <div style={{ marginBottom: '16px' }}><Block numberOfBlocks={10} /></div>
+                            </Item>
+                            <Item
+                                index={1}
+                                title={<div style={{ width: '80%' }}><Rectangle /></div>}
+                            >
+                                <div style={{ marginBottom: '16px' }}><Block numberOfBlocks={15} /></div>
+                            </Item>
+                            <Item
+                                index={2}
+                                title={<div style={{ width: '60%' }}><Rectangle /></div>}
+                            >
+                                <div style={{ marginBottom: '16px' }}><Block numberOfBlocks={10} /></div>
+                            </Item>
+                        </div>
+                    </div>
+                </BrowserFrame>
             </div>
 
             <RelatedPatterns patterns={[Pattern.QuestionsAndAnswers]} />

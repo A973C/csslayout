@@ -1,25 +1,23 @@
 /**
  * A collection of popular layouts and patterns made with CSS (https://csslayout.io)
- * (c) 2019 - 2020 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
+ * (c) 2019 - 2021 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
  */
 
-import React, { useEffect } from 'react';
+import * as React from 'react';
 
 import Footer from './Footer';
-import Github from './Github';
+import Header from './Header';
 
 const Layout: React.FC<{}> = ({ children }) => {
-    useEffect(() => {
+    React.useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
     return (
         <>
-            <Github />
-            <div style={{ margin: '0 auto', position: 'relative' }}>
-                {children}
-                <Footer />
-            </div>
+            <Header />
+            {children}
+            <Footer />
         </>
     );
 };

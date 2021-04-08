@@ -1,5 +1,3 @@
-[![Vote for me on ProductHunt](https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=176424&amp;theme=light)](https://www.producthunt.com/posts/css-layout?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-css-layout)
-
 # CSS Layout
 
 A collection of popular layouts and patterns made with CSS:
@@ -9,9 +7,9 @@ A collection of popular layouts and patterns made with CSS:
 * 🎉No CSS hacks
 * 🎉Real use cases
 * Good practices (coming soon)
-* Accessibility (coming soon)
+* Accessibility Support (coming soon)
 
-![CSS Layout](/public/assets/screenshot.png)
+[![CSS Layout](/public/assets/screenshot.png)](https://csslayout.io)
 
 ## Why
 
@@ -25,44 +23,26 @@ They are powered by modern CSS features such as flexbox and grid.
 They are great starting points to be picked and customized easily for each specific need.
 By composing them, you can have any possible layout that exists in the real life.
 
-The entire website is powered by
-
-~~~ javascript
-this
-    .madeWith([react,typescript])
-    .then(r => lint(tslint))
-    .then(r => lazyLoad(@loadable/component))
-    .then(r => optimizeAndBundle(webpack))
-    .then(r => exportHtml(react-snap))
-    .then(r => deploy(Netlify))
-    .then(r => {
-        expect(r).is(scalableCode);
-        expect(r).is(superFastWebsite);
-        expect(r).is(seoFriendly);
-    })
-    .finally(() => {/* Give me 1 star */}) 🎉
-~~~
-
 ## Running it on local
 
 - Clone the project:
 
-~~~
+```console
 $ git clone https://github.com/phuoc-ng/csslayout
-~~~
+```
 
 - Install the dependencies:
 
-~~~
+```console
 $ cd csslayout
 $ npm install
-~~~
+```
 
 - Run it on the local:
 
-~~~
+```console
 $ npm run dev-server
-~~~
+```
 
 Visit http://localhost:1234 to see it in action.
 
@@ -72,16 +52,36 @@ PRs are welcomed. If you thing there are any missing useful layouts or patterns,
 
 It's important to note that you should run the following command to lint the code:
 
-~~~
+```console
 $ npm run lint
-~~~
+```
 
 If there is any issue, it will be logged in the `tslint.log` file.
 
 ## About
 
-This project is developed by [Nguyen Huu Phuoc](https://twitter.com/nghuuphuoc).
-You might be interesting in my projects:
-* [FormValidation](https://formvalidation.io)
-* [BlurPage](https://blur.page)
-* [React PDF Viewer](https://react-pdf-viewer.dev)
+This project is developed by _Nguyen Huu Phuoc_. I love building products and sharing knowledge.
+
+Be my friend on
+* [Twitter](https://twitter.com/nghuuphuoc)
+* [dev.to](https://dev.to/phuocng)
+* [Github](https://github.com/phuoc-ng)
+
+## Products
+
+You might be interested in my products:
+
+_Products_
+* [Blur Page - A browser extension to hide sensitive information on a web page](https://blur.page)
+* [Check Browsers Support - A browser extension to check browser compatibility without leaving your tab](https://checkbrowsers.support")
+* [Fake Numbers - Generate fake and valid numbers](https://fakenumbers.io)
+* [Form Validation - The best validation library for JavaScript](https://formvalidation.io)
+* [React PDF Viewer - A React component to view a PDF document](https://react-pdf-viewer.dev)
+
+_Resources_
+* [1LOC - Favorite JavaScript utilities in single line of code](https://1loc.dev)
+* [CSS Layout - A collection of popular layouts and patterns made with CSS](https://csslayout.io)
+* [HTML DOM - How to manage HTML DOM with vanilla JavaScript](https://htmldom.dev)
+* [Responsive Design Patterns - A collection of patterns to create a responsive web page](https://responsive.page)
+* [Super tiny, quick tips, tricks and best practices of front-end development](https://getfrontend.tips)
+* [this VS that - The differences between ___ and ___ in the front-end development](https://thisthat.dev)

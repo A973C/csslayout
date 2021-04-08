@@ -1,9 +1,9 @@
 /**
  * A collection of popular layouts and patterns made with CSS (https://csslayout.io)
- * (c) 2019 - 2020 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
+ * (c) 2019 - 2021 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
  */
 
-import React, { useState } from 'react';
+import * as React from 'react';
 import { Helmet } from 'react-helmet';
 
 import RelatedPatterns from '../../components/RelatedPatterns';
@@ -12,7 +12,7 @@ import DetailsLayout from '../../layouts/DetailsLayout';
 import BrowserFrame from '../../placeholders/BrowserFrame';
 
 const Details: React.FC<{}> = () => {
-    const [value, setValue] = useState(0);
+    const [value, setValue] = React.useState(0);
     const decrease = () => setValue(value - 1);
     const increase = () => setValue(value + 1);
     const change = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,86 +22,29 @@ const Details: React.FC<{}> = () => {
     };
 
     return (
-        <DetailsLayout title="Stepper input">
+        <DetailsLayout pattern={Pattern.StepperInput}>
             <Helmet>
                 <meta name="description" content="Create a stepper input with CSS flexbox" />
                 <meta name="keywords" content="css flexbox, css stepper input" />
             </Helmet>
             <div className='p-8 pb-20'>
                 <BrowserFrame
-                    content={(
-                        <div
-                            style={{
-                                alignItems: 'center',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                height: '100%',
-                                justifyContent: 'center',
-                                padding: '8px',
-                            }}
-                        >
-                            <div
-                                style={{
-                                    border: '1px solid rgba(0, 0, 0, 0.3)',
-                                    borderRadius: '8px',
-                                    display: 'flex',
-                                    height: '32px',
-                                    width: '128px',
-                                }}
-                            >
-                                <button
-                                    style={{
-                                        alignItems: 'center',
-                                        backgroundColor: 'rgba(0, 0, 0, 0.05)',
-                                        borderColor: 'transparent',
-                                        cursor: 'pointer',
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        width: '32px',
-                                    }}
-                                    onClick={decrease}
-                                >
-                                    -
-                                </button>
-                                <div
-                                    style={{
-                                        borderLeft: '1px solid rgba(0, 0, 0, 0.3)',
-                                        borderRight: '1px solid rgba(0, 0, 0, 0.3)',
-                                        flex: 1,
-                                        height: '100%',
-                                    }}
-                                >
-                                    <input
-                                        type="text"
-                                        style={{
-                                            borderColor: 'transparent',
-                                            height: '100%',
-                                            padding: '8px',
-                                            width: '100%',
-                                        }}
-                                        value={value}
-                                        onChange={change}
-                                    />
-                                </div>
-                                <button
-                                    style={{
-                                        alignItems: 'center',
-                                        backgroundColor: 'rgba(0, 0, 0, 0.05)',
-                                        borderColor: 'transparent',
-                                        cursor: 'pointer',
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        width: '32px',
-                                    }}
-                                    onClick={increase}
-                                >
-                                    +
-                                </button>
-                            </div>
-                        </div>
-                    )}
-                    source={`
-<div style="
+html={`
+<div class="stepper">
+    <!-- Minus button -->
+    <button class="stepper__button">-</button>
+
+    <!-- Input container -->
+    <div class="stepper__content">
+        <input type="text" class="stepper__input" />
+    </div>
+
+    <!-- Plus button -->
+    <button class="stepper__button">+</button>
+</div>
+`}
+css={`
+.stepper {
     display: flex;
 
     /* Border */
@@ -110,42 +53,101 @@ const Details: React.FC<{}> = () => {
     /* Size */
     height: 32px;
     width: 128px;
-">
-    <!-- Minus button -->
-    <button style="
-        /* Center the content */
-        align-items: center;
-        display: flex;
-        justify-content: center;
+}
 
-        /* Size */
-        width: 32px;
-    ">-</button>
+.stepper__button {
+    /* Center the content */
+    align-items: center;
+    display: flex;
+    justify-content: center;
 
-    <!-- Input container -->
-    <div style="flex: 1">
-        <input type="text" style="
-            /* Take full size of its container */
-            height: 100%;
-            width: 100%;
-        " />
-    </div>
+    /* Size */
+    width: 32px;
+}
 
-    <!-- Plus button -->
-    <button style="
-        /* Center the content */
-        align-items: center;
-        display: flex;
-        justify-content: center;
+.stepper__content {
+    flex: 1;
+}
 
-        /* Size */
-        width: 32px;
-    ">+</button>
-</div>
+.stepper__input {
+    /* Take full size of its container */
+    height: 100%;
+    width: 100%;
+}
 `}
-                />
+                >
+                    <div
+                        style={{
+                            alignItems: 'center',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            height: '100%',
+                            justifyContent: 'center',
+                            padding: '8px',
+                        }}
+                    >
+                        <div
+                            style={{
+                                border: '1px solid rgba(0, 0, 0, 0.3)',
+                                borderRadius: '8px',
+                                display: 'flex',
+                                height: '32px',
+                                width: '128px',
+                            }}
+                        >
+                            <button
+                                style={{
+                                    alignItems: 'center',
+                                    backgroundColor: 'rgba(0, 0, 0, 0.05)',
+                                    borderColor: 'transparent',
+                                    cursor: 'pointer',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    width: '32px',
+                                }}
+                                onClick={decrease}
+                            >
+                                -
+                            </button>
+                            <div
+                                style={{
+                                    borderLeft: '1px solid rgba(0, 0, 0, 0.3)',
+                                    borderRight: '1px solid rgba(0, 0, 0, 0.3)',
+                                    flex: 1,
+                                    height: '100%',
+                                }}
+                            >
+                                <input
+                                    type="text"
+                                    style={{
+                                        borderColor: 'transparent',
+                                        height: '100%',
+                                        padding: '8px',
+                                        width: '100%',
+                                    }}
+                                    value={value}
+                                    onChange={change}
+                                />
+                            </div>
+                            <button
+                                style={{
+                                    alignItems: 'center',
+                                    backgroundColor: 'rgba(0, 0, 0, 0.05)',
+                                    borderColor: 'transparent',
+                                    cursor: 'pointer',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    width: '32px',
+                                }}
+                                onClick={increase}
+                            >
+                                +
+                            </button>
+                        </div>
+                    </div>
+                </BrowserFrame>
             </div>
-            <RelatedPatterns patterns={[Pattern.SpinButton]} />
+            <RelatedPatterns patterns={[Pattern.SpinButton, Pattern.Voting]} />
         </DetailsLayout>
     );
 };

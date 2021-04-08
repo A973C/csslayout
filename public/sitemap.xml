@@ -32,12 +32,14 @@
     <url><loc>https://csslayout.io/patterns/fixed-at-corner</loc></url>
     <url><loc>https://csslayout.io/patterns/fixed-at-side</loc></url>
     <url><loc>https://csslayout.io/patterns/floating-label</loc></url>
+    <url><loc>https://csslayout.io/patterns/folder-structure</loc></url>
     <url><loc>https://csslayout.io/patterns/full-background</loc></url>
     <url><loc>https://csslayout.io/patterns/full-screen-menu</loc></url>
     <url><loc>https://csslayout.io/patterns/holy-grail</loc></url>
     <url><loc>https://csslayout.io/patterns/initial-avatar</loc></url>
     <url><loc>https://csslayout.io/patterns/input-addon</loc></url>
     <url><loc>https://csslayout.io/patterns/keyboard-shortcut</loc></url>
+    <url><loc>https://csslayout.io/patterns/layered-card</loc></url>
     <url><loc>https://csslayout.io/patterns/lined-paper</loc></url>
     <url><loc>https://csslayout.io/patterns/media-object</loc></url>
     <url><loc>https://csslayout.io/patterns/mega-menu</loc></url>
@@ -50,6 +52,7 @@
     <url><loc>https://csslayout.io/patterns/popover-arrow</loc></url>
     <url><loc>https://csslayout.io/patterns/presence-indicator</loc></url>
     <url><loc>https://csslayout.io/patterns/previous-next-buttons</loc></url>
+    <url><loc>https://csslayout.io/patterns/price-tag</loc></url>
     <url><loc>https://csslayout.io/patterns/pricing-table</loc></url>
     <url><loc>https://csslayout.io/patterns/progress-bar</loc></url>
     <url><loc>https://csslayout.io/patterns/property-list</loc></url>
@@ -82,13 +85,16 @@
     <url><loc>https://csslayout.io/patterns/switch</loc></url>
     <url><loc>https://csslayout.io/patterns/tab</loc></url>
     <url><loc>https://csslayout.io/patterns/teardrop</loc></url>
+    <url><loc>https://csslayout.io/patterns/three-dimensions-card</loc></url>
     <url><loc>https://csslayout.io/patterns/timeline</loc></url>
     <url><loc>https://csslayout.io/patterns/toggle-password-visibility</loc></url>
     <url><loc>https://csslayout.io/patterns/tooltip</loc></url>
+    <url><loc>https://csslayout.io/patterns/tree-diagram</loc></url>
     <url><loc>https://csslayout.io/patterns/triangle-buttons</loc></url>
     <url><loc>https://csslayout.io/patterns/upload-button</loc></url>
     <url><loc>https://csslayout.io/patterns/validation-icon</loc></url>
     <url><loc>https://csslayout.io/patterns/video-background</loc></url>
+    <url><loc>https://csslayout.io/patterns/voting</loc></url>
     <url><loc>https://csslayout.io/patterns/watermark</loc></url>
     <url><loc>https://csslayout.io/patterns/wizard</loc></url>
 </urlset>

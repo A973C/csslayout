@@ -1,6 +1,6 @@
 /**
  * A collection of popular layouts and patterns made with CSS (https://csslayout.io)
- * (c) 2019 - 2020 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
+ * (c) 2019 - 2021 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
  */
 
 const path = require('path');
@@ -24,12 +24,8 @@ if (process.env.NODE_ENV === "analyse") {
 }
 
 module.exports = {
+    mode: process.env.NODE_ENV,
     entry: {
-        'vendor-styles': [
-            './vendors/highlight.js@9.12.0/theme.min.css',
-            './vendors/tailwind@1.1.4/tailwind.css',
-        ],
-        // The CSS for client should come after `vendor-styles`
         client: './client/index.tsx',
     },
     output: {
@@ -51,20 +47,8 @@ module.exports = {
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: process.env.NODE_ENV === 'development',
-                        },
                     },
                     'css-loader',
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            ident: 'postcss',
-                            plugins: [
-                                require('tailwindcss'),
-                            ],
-                        },
-                    },
                 ],
             },
             {
@@ -84,41 +68,11 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
     },
-    devtool: 'cheap-module-eavl-source-map',
+    devtool: process.env.NODE_ENV === 'production' ? false : 'source-map',
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         historyApiFallback: true,
         port: 1234,
     },
     plugins,
-    // See https://webpack.js.org/guides/caching/
-    optimization: {
-        runtimeChunk: 'single',
-        moduleIds: 'hashed',
-        splitChunks: {
-            chunks: 'all',
-            maxInitialRequests: Infinity,
-            minSize: 0,
-            cacheGroups: {
-                vendor: {
-                    // sync + async chunks
-                    chunks: 'all',
-                    name: 'vendors',
-                    // import file path containing node_modules
-                    test: /[\\/]node_modules[\\/]/,
-                    priority: 20,
-                },
-                /*
-                common: {
-                    name: 'common',
-                    minChunks: 2,
-                    chunks: 'all',
-                    priority: 10,
-                    reuseExistingChunk: true,
-                    enforce: true,
-                },
-                */
-            },
-        },
-    }, 
 };

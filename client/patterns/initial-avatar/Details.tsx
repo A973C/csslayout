@@ -1,9 +1,9 @@
 /**
  * A collection of popular layouts and patterns made with CSS (https://csslayout.io)
- * (c) 2019 - 2020 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
+ * (c) 2019 - 2021 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
  */
 
-import React from 'react';
+import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
@@ -14,7 +14,7 @@ import BrowserFrame from '../../placeholders/BrowserFrame';
 
 const Details: React.FC<{}> = () => {
     return (
-        <DetailsLayout title="Initial avatar">
+        <DetailsLayout pattern={Pattern.InitialAvatar}>
             <Helmet>
                 <meta name="description" content="Create an initial avatar with CSS" />
                 <meta name="keywords" content="css avatar" />
@@ -25,45 +25,16 @@ const Details: React.FC<{}> = () => {
                     the <Link to='/patterns/centering'>Centering</Link> pattern.
                 </div>
                 <BrowserFrame
-                    content={(
-                        <div
-                            style={{
-                                alignItems: 'center',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                height: '100%',
-                                justifyContent: 'center',
-                                padding: '8px',
-                            }}
-                        >
-                            <div
-                                style={{
-                                    backgroundColor: 'rgba(0, 0, 0, 0.3)',
-                                    borderRadius: '50%',
-                                    color: '#FFF',
-                                    display: 'inline-block',
-                                    fontSize: '24px',
-                                    height: '48px',
-                                    position: 'relative',
-                                    verticalAlign: 'middle',
-                                    width: '48px',
-                                }}
-                            >
-                                <div
-                                    style={{
-                                        left: '50%',
-                                        position: 'absolute',
-                                        top: '50%',
-                                        transform: 'translate(-50%, -50%)',
-                                    }}
-                                >
-                                    PN
-                                </div>
-                            </div>
-                        </div>
-                    )}
-                    source={`
-<div style="
+html={`
+<div class="avatar">
+    <div class="avatar__letters">
+        <!-- The letters -->
+        ...
+    </div>
+</div>
+`}
+css={`
+.avatar {
     /* Center the content */
     display: inline-block;
     vertical-align: middle;
@@ -79,20 +50,53 @@ const Details: React.FC<{}> = () => {
     border-radius: 50%;
     height: 48px;
     width: 48px;
-">
-    <div style="
-        /* Center the content */
-        left: 50%;
-        position: absolute;
-        top: 50%;
-        transform: translate(-50%, -50%);
-    ">
-        <!-- The letters -->
-        ...
-    </div>
-</div>
+}
+
+.avatar__letters {
+    /* Center the content */
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
 `}
-                />
+                >
+                    <div
+                        style={{
+                            alignItems: 'center',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            height: '100%',
+                            justifyContent: 'center',
+                            padding: '8px',
+                        }}
+                    >
+                        <div
+                            style={{
+                                backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                                borderRadius: '50%',
+                                color: '#FFF',
+                                display: 'inline-block',
+                                fontSize: '24px',
+                                height: '48px',
+                                position: 'relative',
+                                verticalAlign: 'middle',
+                                width: '48px',
+                            }}
+                        >
+                            <div
+                                style={{
+                                    left: '50%',
+                                    position: 'absolute',
+                                    top: '50%',
+                                    transform: 'translate(-50%, -50%)',
+                                }}
+                            >
+                                PN
+                            </div>
+                        </div>
+                    </div>
+                </BrowserFrame>
             </div>
 
             <RelatedPatterns

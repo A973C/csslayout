@@ -1,9 +1,9 @@
 /**
  * A collection of popular layouts and patterns made with CSS (https://csslayout.io)
- * (c) 2019 - 2020 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
+ * (c) 2019 - 2021 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
  */
 
-import React from 'react';
+import * as React from 'react';
 import { Helmet } from 'react-helmet';
 
 import RelatedPatterns from '../../components/RelatedPatterns';
@@ -15,48 +15,26 @@ import Rectangle from '../../placeholders/Rectangle';
 
 const Details: React.FC<{}> = () => {
     return (
-        <DetailsLayout title="Cookie banner">
+        <DetailsLayout pattern={Pattern.CookieBanner}>
             <Helmet>
                 <meta name="description" content="Create a cookie banner with CSS flexbox" />
                 <meta name="keywords" content="css cookie banner, css flexbox" />
             </Helmet>
             <div className='p-8 pb-20'>
                 <BrowserFrame
-                    content={(
-                        <div
-                            style={{
-                                alignItems: 'center',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                height: '100%',
-                                justifyContent: 'center',
-                                position: 'relative',
-                            }}
-                        >
-                            <div
-                                style={{
-                                    alignItems: 'center',
-                                    backgroundColor: 'rgba(0, 0, 0, 0.05)',
-                                    borderTop: '1px solid rgba(0, 0, 0, 0.3)',
-                                    bottom: 0,
-                                    display: 'flex',
-                                    left: 0,
-                                    padding: '8px',
-                                    position: 'absolute',
-                                    width: '100%',
-                                }}
-                            >
-                                <div style={{ flex: 1, marginRight: '12px' }}>
-                                    <Block numberOfBlocks={5} />
-                                </div>
-                                <div style={{ width: '96px' }}>
-                                    <Rectangle height={32} />
-                                </div>
-                            </div>
-                        </div>
-                    )}
-                    source={`
-<div style="
+html={`
+<div class="banner">
+    <!-- Tells visitors that the website uses cookie -->
+    <div class="banner__content">
+        ...
+    </div>
+
+    <!-- Close button -->
+    ...
+</div>
+`}
+css={`
+.banner {
     /* Banner is displayed at the bottom */
     bottom: 0;
     left: 0;
@@ -67,20 +45,46 @@ const Details: React.FC<{}> = () => {
     align-items: center;
     display: flex;
     justify-content: center;
-">
-    <!-- Tells visitors that the website uses cookie -->
-    <div style="
-        /* Take available width */
-        flex: 1;
-    ">
-        ...
-    </div>
+}
 
-    <!-- Close button -->
-    ...
-</div>
+.banner__content {
+    /* Take available width */
+    flex: 1;
+}
 `}
-                />
+                >
+                    <div
+                        style={{
+                            alignItems: 'center',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            height: '100%',
+                            justifyContent: 'center',
+                            position: 'relative',
+                        }}
+                    >
+                        <div
+                            style={{
+                                alignItems: 'center',
+                                backgroundColor: 'rgba(0, 0, 0, 0.05)',
+                                borderTop: '1px solid rgba(0, 0, 0, 0.3)',
+                                bottom: 0,
+                                display: 'flex',
+                                left: 0,
+                                padding: '8px',
+                                position: 'absolute',
+                                width: '100%',
+                            }}
+                        >
+                            <div style={{ flex: 1, marginRight: '12px' }}>
+                                <Block numberOfBlocks={5} />
+                            </div>
+                            <div style={{ width: '96px' }}>
+                                <Rectangle height={32} />
+                            </div>
+                        </div>
+                    </div>
+                </BrowserFrame>
             </div>
             <RelatedPatterns patterns={[Pattern.FixedAtCorner]} />
         </DetailsLayout>

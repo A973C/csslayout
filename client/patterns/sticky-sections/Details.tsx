@@ -1,9 +1,9 @@
 /**
  * A collection of popular layouts and patterns made with CSS (https://csslayout.io)
- * (c) 2019 - 2020 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
+ * (c) 2019 - 2021 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
  */
 
-import React from 'react';
+import * as React from 'react';
 import { Helmet } from 'react-helmet';
 
 import RelatedPatterns from '../../components/RelatedPatterns';
@@ -13,7 +13,7 @@ import BrowserFrame from '../../placeholders/BrowserFrame';
 
 const Details: React.FC<{}> = () => {
     return (
-        <DetailsLayout title="Sticky sections">
+        <DetailsLayout pattern={Pattern.StickySections}>
             <Helmet>
                 <meta name="description" content="Create sticky sections with CSS" />
                 <meta name="keywords" content="css layout, css sticky, css sticky sections" />
@@ -23,56 +23,9 @@ const Details: React.FC<{}> = () => {
                     Try to scroll the main content to see each section sticks to the top of page.
                 </div>
                 <BrowserFrame
-                    content={(
-                        <div
-                            style={{
-                                height: '100%',
-                                overflow: 'scroll',
-                            }}
-                        >
-                            <section
-                                style={{
-                                    backgroundColor: 'rgba(0, 0, 0, 0.1)',
-                                    height: '100%',
-                                    position: 'sticky',
-                                    top: 0,
-                                    width: '100%',
-                                }}
-                            />
-                            <section
-                                style={{
-                                    backgroundColor: 'rgba(0, 0, 0, 0.3)',
-                                    height: '100%',
-                                    position: 'sticky',
-                                    top: 0,
-                                    width: '100%',
-                                }}
-                            />
-                            <section
-                                style={{
-                                    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                                    height: '100%',
-                                    position: 'sticky',
-                                    top: 0,
-                                    width: '100%',
-                                }}
-                            />
-                        </div>
-                    )}
-                    source={`
-<div style="
-    height: 100%;
-    overflow: scroll;
-">
-    <section style="
-        /* Take full size */
-        height: 100%;
-        width: 100%;
-
-        /* Stick to the top */
-        position: sticky;
-        top: 0;
-    ">
+html={`
+<div class="container">
+    <section class="container__section">
         ...
     </section>
 
@@ -80,7 +33,58 @@ const Details: React.FC<{}> = () => {
     ...
 </div>
 `}
-                />
+css={`
+.container {
+    height: 100%;
+    overflow: scroll;
+}
+
+.container__section {
+    /* Take full size */
+    height: 100%;
+    width: 100%;
+
+    /* Stick to the top */
+    position: sticky;
+    top: 0;
+}
+`}
+                >
+                    <div
+                        style={{
+                            height: '100%',
+                            overflow: 'scroll',
+                        }}
+                    >
+                        <section
+                            style={{
+                                backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                                height: '100%',
+                                position: 'sticky',
+                                top: 0,
+                                width: '100%',
+                            }}
+                        />
+                        <section
+                            style={{
+                                backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                                height: '100%',
+                                position: 'sticky',
+                                top: 0,
+                                width: '100%',
+                            }}
+                        />
+                        <section
+                            style={{
+                                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                                height: '100%',
+                                position: 'sticky',
+                                top: 0,
+                                width: '100%',
+                            }}
+                        />
+                    </div>
+                </BrowserFrame>
             </div>
 
             <RelatedPatterns patterns={[Pattern.StickyHeader, Pattern.StickyTableColumn, Pattern.StickyTableHeaders]} />

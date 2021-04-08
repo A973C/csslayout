@@ -1,9 +1,9 @@
 /**
  * A collection of popular layouts and patterns made with CSS (https://csslayout.io)
- * (c) 2019 - 2020 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
+ * (c) 2019 - 2021 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
  */
 
-import React from 'react';
+import * as React from 'react';
 import { Helmet } from 'react-helmet';
 
 import './tooltip.css';
@@ -17,7 +17,7 @@ import Rectangle from '../../placeholders/Rectangle';
 
 const Details: React.FC<{}> = () => {
     return (
-        <DetailsLayout title="Tooltip">
+        <DetailsLayout pattern={Pattern.Tooltip}>
             <Helmet>
                 <meta name="description" content="Create a tooltip with CSS" />
                 <meta name="keywords" content="css tooltip" />
@@ -27,54 +27,39 @@ const Details: React.FC<{}> = () => {
                     Move the mouser over the main element to see the tooltip.
                 </div>
                 <BrowserFrame
-                    content={(
-                        <div
-                            style={{
-                                alignItems: 'center',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                height: '100%',
-                                justifyContent: 'center',
-                                padding: '8px',
-                            }}
-                        >
-                            <div
-                                className="p-tooltip"
-                                style={{
-                                    marginBottom: '16px',
-                                    width: '150px',
-                                }}
-                            >
-                                <div
-                                    className="p-tooltip-content"
-                                    style={{
-                                        padding: '8px',
-                                        width: '200px',
-                                    }}
-                                >
-                                    <Block backgroundColor='#fff' justify='center' numberOfBlocks={5} />
-                                </div>
-                                <div className="p-tooltip-arrow" />
-                                <Rectangle height={32} />
-                            </div>
-                        </div>
-                    )}
-                    source={`
-<style>
-.p-tooltip {
+html={`
+<div class="container">
+    <!-- The tooltip content -->
+    <div class="container__content">
+        ...
+    </div>
+
+    <!-- The tooltip arrow -->
+    <div class="container__arrow" />
+
+    <!-- The trigger element -->
+    ...
+</div>
+`}
+css={`
+.container {
     /* Used to position the arrow */
     position: relative;
 }
 
-/* Show the arrow and content when hovering the trigger element */
-.p-tooltip:hover .p-tooltip-arrow,
-.p-tooltip:hover .p-tooltip-content {
+/* Show the arrow and content and restore pointer events when hovering the trigger element */
+.container:hover .container__arrow,
+.container:hover .container__content {
     opacity: 1;
+    pointer-events: initial;
 }
 
-.p-tooltip-arrow {
+.container__arrow {
     /* Invisible by default */
     opacity: 0;
+
+    /* To prevent accidental interactions with other elements  */
+    pointer-events: none;
 
     /* Border */
     border: 8px solid transparent;
@@ -94,9 +79,12 @@ const Details: React.FC<{}> = () => {
     z-index: 10;
 }
 
-.p-tooltip-content {
+.container__content {
     /* Invisible by default */
     opacity: 0;
+
+    /* To prevent accidental interactions with other elements  */
+    pointer-events: none;
 
     /* Background color, must be the same as the border color of arrow */
     background-color: #00439e;
@@ -111,22 +99,39 @@ const Details: React.FC<{}> = () => {
     /* Displayed on top of other element */
     z-index: 10;
 }
-</style>
-
-<div class="p-tooltip">
-    <!-- The tooltip content -->
-    <div class="p-tooltip-content">
-        ...
-    </div>
-
-    <!-- The tooltip arrow -->
-    <div class="p-tooltip-arrow" />
-
-    <!-- The trigger element -->
-    ...
-</div>
 `}
-                />
+                >
+                    <div
+                        style={{
+                            alignItems: 'center',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            height: '100%',
+                            justifyContent: 'center',
+                            padding: '8px',
+                        }}
+                    >
+                        <div
+                            className="p-tooltip"
+                            style={{
+                                marginBottom: '16px',
+                                width: '150px',
+                            }}
+                        >
+                            <div
+                                className="p-tooltip-content"
+                                style={{
+                                    padding: '8px',
+                                    width: '200px',
+                                }}
+                            >
+                                <Block backgroundColor='#fff' justify='center' numberOfBlocks={5} />
+                            </div>
+                            <div className="p-tooltip-arrow" />
+                            <Rectangle height={32} />
+                        </div>
+                    </div>
+                </BrowserFrame>
             </div>
 
             <RelatedPatterns patterns={[Pattern.PopoverArrow]} />

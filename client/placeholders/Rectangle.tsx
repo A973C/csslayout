@@ -1,9 +1,9 @@
 /**
  * A collection of popular layouts and patterns made with CSS (https://csslayout.io)
- * (c) 2019 - 2020 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
+ * (c) 2019 - 2021 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
  */
 
-import React from 'react';
+import * as React from 'react';
 
 interface RectangleProps {
     height?: number;
@@ -14,7 +14,7 @@ const Rectangle: React.FC<RectangleProps> = ({ height = 8 }) => {
         <div
             style={{
                 backgroundColor: 'rgba(0, 0, 0, .3)',
-                borderRadius: '2px',
+                borderRadius: '0.25rem',
                 height: `${height}px`,
                 width: '100%',
             }}

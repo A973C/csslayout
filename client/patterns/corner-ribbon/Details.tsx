@@ -1,9 +1,9 @@
 /**
  * A collection of popular layouts and patterns made with CSS (https://csslayout.io)
- * (c) 2019 - 2020 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
+ * (c) 2019 - 2021 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
  */
 
-import React from 'react';
+import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
@@ -15,101 +15,107 @@ import BrowserFrame from '../../placeholders/BrowserFrame';
 
 const Details: React.FC<{}> = () => {
     return (
-        <DetailsLayout title="Corner ribbon">
+        <DetailsLayout pattern={Pattern.CornerRibbon}>
             <Helmet>
                 <meta name="description" content="Create a corner ribbon with CSS flexbox" />
                 <meta name="keywords" content="css flexbox, css ribbon" />
             </Helmet>
             <div className='p-8 pb-20'>
                 <BrowserFrame
-                    content={(
-                        <div
-                            style={{
-                                alignItems: 'center',
-                                display: 'flex',
-                                height: '100%',
-                                justifyContent: 'center',
-                            }}
-                        >
-                            <div
-                                style={{
-                                    border: '1px solid rgba(0, 0, 0, 0.3)',
-                                    borderRadius: '4px',
-                                    height: '256px',
-                                    position: 'relative',
-                                    width: '256px',
-                                }}
-                            >
-                                <div
-                                    style={{
-                                        height: '100px',
-                                        left: 0,
-                                        overflow: 'hidden',
-                                        position: 'absolute',
-                                        top: 0,
-                                        width: '100px',
-                                    }}
-                                >
-                                    <div
-                                        style={{
-                                            backgroundColor: 'rgba(0, 0, 0, 0.3)',
-                                            height: '24px',
-                                            left: '-64px',
-                                            position: 'absolute',
-                                            textAlign: 'center',
-                                            top: '32px',
-                                            transform: 'rotate(-45deg)',
-                                            width: '206px',
-                                        }}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    )}
-                    source={`
-<div style="
-    position: relative;
-">
+html={`
+<div class="container">
     <!-- The container -->
-    <div style="
-        /* Displayed at the top left corner */
-        left: 0px;
-        position: absolute;
-        top: 0px;
-
-        /* Size */
-        height: 100px;
-        width: 100px;
-
-        /* Hide the part of its children which is displayed outside */
-        overflow: hidden;
-    ">
+    <div class="container__wrapper">
         <!-- The ribbon -->
-        <div style="
-            /* Position */
-            left: -64px;
-            position: absolute;
-            top: 32px;
-
-            /* Size */
-            height: 24px;
-            width: 206px;
-
-            /* Displayed diagonally */
-            transform: rotate(-45deg);
-
-            /* Background color */
-            background-color: rgba(0, 0, 0, 0.3);
-
-            /* Centerize the text content */
-            text-align: center;
-        ">
+        <div class="container__ribbon">
             ...
         </div>
     </div>
 </div>
 `}
-                />
+css={`
+.container {
+    position: relative;
+}
+
+.container__wrapper {
+    /* Displayed at the top left corner */
+    left: 0px;
+    position: absolute;
+    top: 0px;
+
+    /* Size */
+    height: 100px;
+    width: 100px;
+
+    /* Hide the part of its children which is displayed outside */
+    overflow: hidden;
+}
+
+.container__ribbon {
+    /* Position */
+    left: -64px;
+    position: absolute;
+    top: 32px;
+
+    /* Size */
+    height: 24px;
+    width: 206px;
+
+    /* Displayed diagonally */
+    transform: rotate(-45deg);
+
+    /* Background color */
+    background-color: rgba(0, 0, 0, 0.3);
+
+    /* Centerize the text content */
+    text-align: center;
+}
+`}
+                >
+                    <div
+                        style={{
+                            alignItems: 'center',
+                            display: 'flex',
+                            height: '100%',
+                            justifyContent: 'center',
+                        }}
+                    >
+                        <div
+                            style={{
+                                border: '1px solid rgba(0, 0, 0, 0.3)',
+                                borderRadius: '4px',
+                                height: '256px',
+                                position: 'relative',
+                                width: '256px',
+                            }}
+                        >
+                            <div
+                                style={{
+                                    height: '100px',
+                                    left: 0,
+                                    overflow: 'hidden',
+                                    position: 'absolute',
+                                    top: 0,
+                                    width: '100px',
+                                }}
+                            >
+                                <div
+                                    style={{
+                                        backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                                        height: '24px',
+                                        left: '-64px',
+                                        position: 'absolute',
+                                        textAlign: 'center',
+                                        top: '32px',
+                                        transform: 'rotate(-45deg)',
+                                        width: '206px',
+                                    }}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </BrowserFrame>
             </div>
 
             <section>

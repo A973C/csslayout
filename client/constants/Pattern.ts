@@ -1,9 +1,9 @@
 /**
  * A collection of popular layouts and patterns made with CSS (https://csslayout.io)
- * (c) 2019 - 2020 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
+ * (c) 2019 - 2021 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
  */
 
-enum Pattern {
+enum Pattern {    
     Accordion = 'Accordion',
     ArrowButtons = 'Arrow buttons',
     Avatar = 'Avatar',
@@ -36,12 +36,14 @@ enum Pattern {
     FixedAtCorner = 'Fixed at corner',
     FixedAtSide = 'Fixed at side',
     FloatingLabel = 'Floating label',
+    FolderStructure = 'Folder structure',
     FullBackground = 'Full background',
     FullScreenMenu = 'Full screen menu',
     HolyGrail = 'Holy grail',
     InitialAvatar = 'Initial avatar',
     InputAddon = 'Input addon',
     KeyboardShortcut = 'Keyboard shortcut',
+    LayeredCard = 'Layered card',
     LinedPaper = 'Lined paper',
     MediaObject = 'Media object',
     MegaMenu = 'Mega menu',
@@ -55,6 +57,7 @@ enum Pattern {
     PresenceIndicator = 'Presence indicator',
     PreviousNextButtons = 'Previous next buttons',
     PricingTable = 'Pricing table',
+    PriceTag = 'Price tag',
     PropertyList = 'Property list',
     ProgressBar = 'Progress bar',
     QuestionsAndAnswers = 'Questions and answers',
@@ -86,13 +89,16 @@ enum Pattern {
     Switch = 'Switch',
     Tab = 'Tab',
     Teardrop = 'Teardrop',
+    ThreeDimensionsCard = 'Three dimensions card',
     Timeline = 'Timeline',
     TogglePasswordVisibility = 'Toggle password visibility',
     Tooltip = 'Tooltip',
+    TreeDiagram = 'Tree diagram',
     TriangleButtons = 'Triangle buttons',
     UploadButton = 'Upload button',
     ValidationIcon = 'Validation icon',
     VideoBackground = 'Video background',
+    Voting = 'Voting',
     Watermark = 'Watermark',
     Wizard = 'Wizard',
 }

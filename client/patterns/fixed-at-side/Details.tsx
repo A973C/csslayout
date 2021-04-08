@@ -1,9 +1,9 @@
 /**
  * A collection of popular layouts and patterns made with CSS (https://csslayout.io)
- * (c) 2019 - 2020 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
+ * (c) 2019 - 2021 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
  */
 
-import React from 'react';
+import * as React from 'react';
 import { Helmet } from 'react-helmet';
 
 import Heading from '../../components/Heading';
@@ -14,46 +14,48 @@ import BrowserFrame from '../../placeholders/BrowserFrame';
 
 const Details: React.FC<{}> = () => {
     return (
-        <DetailsLayout title="Fixed at side">
+        <DetailsLayout pattern={Pattern.FixedAtSide}>
             <Helmet>
                 <meta name="description" content="Fix an element at the middle of side with CSS" />
                 <meta name="keywords" content="css fixed" />
             </Helmet>
             <div className='p-8 pb-20'>
                 <BrowserFrame
-                    content={(
-                        <div
-                            style={{
-                                height: '100%',
-                                position: 'relative',
-                                width: '100%',
-                            }}
-                        >
-                            <div
-                                style={{
-                                    backgroundColor: 'rgba(0, 0, 0, 0.3)',
-                                    height: '200px',
-                                    position: 'absolute',
-                                    right: 0,
-                                    top: '50%',
-                                    transform: 'translate(0, -50%)',
-                                    width: '32px',
-                                }}
-                            />
-                        </div>
-                    )}
-                    source={`
+html={`
 <!-- Fixed at the middle of side -->
-<div style="
+<div class="container">
+    ...
+</div>
+`}
+css={`
+.container {
     right: 0;
     position: fixed;
     top: 50%;
     transform: translate(0px, -50%);
-">
-    ...
-</div>
+}
 `}
-                />
+                >
+                    <div
+                        style={{
+                            height: '100%',
+                            position: 'relative',
+                            width: '100%',
+                        }}
+                    >
+                        <div
+                            style={{
+                                backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                                height: '200px',
+                                position: 'absolute',
+                                right: 0,
+                                top: '50%',
+                                transform: 'translate(0, -50%)',
+                                width: '32px',
+                            }}
+                        />
+                    </div>
+                </BrowserFrame>
             </div>
 
             <section>

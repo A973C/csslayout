@@ -1,9 +1,9 @@
 /**
  * A collection of popular layouts and patterns made with CSS (https://csslayout.io)
- * (c) 2019 - 2020 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
+ * (c) 2019 - 2021 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
  */
 
-import React, { useState } from 'react';
+import * as React from 'react';
 import { Helmet } from 'react-helmet';
 
 import RelatedPatterns from '../../components/RelatedPatterns';
@@ -20,7 +20,7 @@ interface ItemProps {
 }
 
 const Details: React.FC<{}> = () => {
-    const [activeItem, setActiveItem] = useState(-1);
+    const [activeItem, setActiveItem] = React.useState(-1);
 
     const Item: React.FC<ItemProps> = ({ index, title, children }) => {
         const isOpened = (index === activeItem);
@@ -53,81 +53,18 @@ const Details: React.FC<{}> = () => {
     };
 
     return (
-        <DetailsLayout title="Questions and answers">
+        <DetailsLayout pattern={Pattern.QuestionsAndAnswers}>
             <Helmet>
                 <meta name="description" content="Create a questions and answers section with CSS flexbox" />
                 <meta name="keywords" content="css accordion, css faq, css flexbox" />
             </Helmet>
             <div className='p-8 pb-20'>
                 <BrowserFrame
-                    content={(
-                        <div
-                            style={{
-                                alignItems: 'center',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                height: '100%',
-                                justifyContent: 'center',
-                                padding: '8px',
-                            }}
-                        >
-                            <div style={{ width: '60%' }}>
-                                <div
-                                    style={{
-                                        margin: '0 auto',
-                                        paddingBottom: '24px',
-                                        width: '200px',
-                                    }}
-                                >
-                                    <Rectangle />
-                                </div>
-                                <div
-                                    style={{
-                                        borderBottom: '1px solid rgba(0, 0, 0, 0.3)',
-                                        borderTop: '1px solid rgba(0, 0, 0, 0.3)',
-                                    }}
-                                >
-                                    <Item
-                                        index={0}
-                                        title={<div style={{ width: '40%' }}><Rectangle /></div>}
-                                    >
-                                        <Block numberOfBlocks={10} />
-                                    </Item>
-                                </div>
-                                <div
-                                    style={{
-                                        borderBottom: '1px solid rgba(0, 0, 0, 0.3)',
-                                    }}
-                                >
-                                    <Item
-                                        index={1}
-                                        title={<div style={{ width: '80%' }}><Rectangle /></div>}
-                                    >
-                                        <Block numberOfBlocks={15} />
-                                    </Item>
-                                </div>
-                                <div style={{ borderBottom: '1px solid rgba(0, 0, 0, 0.3)' }}>
-                                    <Item
-                                        index={2}
-                                        title={<div style={{ width: '60%' }}><Rectangle /></div>}
-                                    >
-                                        <Block numberOfBlocks={10} />
-                                    </Item>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-                    source={`
+html={`
 <!-- Each question and answer item -->
-<div style="
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-">
+<div class="container">
     <!-- Heading -->
-    <div style="
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    ">
+    <div class="container__heading">
         <!-- Question -->
         ...
 
@@ -138,7 +75,74 @@ const Details: React.FC<{}> = () => {
     <!-- Answer -->
 </div>
 `}
-                />
+css={`
+.container {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.container__heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+`}
+                >
+                    <div
+                        style={{
+                            alignItems: 'center',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            height: '100%',
+                            justifyContent: 'center',
+                            padding: '8px',
+                        }}
+                    >
+                        <div style={{ width: '60%' }}>
+                            <div
+                                style={{
+                                    margin: '0 auto',
+                                    paddingBottom: '24px',
+                                    width: '200px',
+                                }}
+                            >
+                                <Rectangle />
+                            </div>
+                            <div
+                                style={{
+                                    borderBottom: '1px solid rgba(0, 0, 0, 0.3)',
+                                    borderTop: '1px solid rgba(0, 0, 0, 0.3)',
+                                }}
+                            >
+                                <Item
+                                    index={0}
+                                    title={<div style={{ width: '40%' }}><Rectangle /></div>}
+                                >
+                                    <Block numberOfBlocks={10} />
+                                </Item>
+                            </div>
+                            <div
+                                style={{
+                                    borderBottom: '1px solid rgba(0, 0, 0, 0.3)',
+                                }}
+                            >
+                                <Item
+                                    index={1}
+                                    title={<div style={{ width: '80%' }}><Rectangle /></div>}
+                                >
+                                    <Block numberOfBlocks={15} />
+                                </Item>
+                            </div>
+                            <div style={{ borderBottom: '1px solid rgba(0, 0, 0, 0.3)' }}>
+                                <Item
+                                    index={2}
+                                    title={<div style={{ width: '60%' }}><Rectangle /></div>}
+                                >
+                                    <Block numberOfBlocks={10} />
+                                </Item>
+                            </div>
+                        </div>
+                    </div>
+                </BrowserFrame>
             </div>
 
             <RelatedPatterns patterns={[Pattern.Accordion]} />

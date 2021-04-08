@@ -1,9 +1,9 @@
 /**
  * A collection of popular layouts and patterns made with CSS (https://csslayout.io)
- * (c) 2019 - 2020 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
+ * (c) 2019 - 2021 Nguyen Huu Phuoc <https://twitter.com/nghuuphuoc>
  */
 
-import React from 'react';
+import * as React from 'react';
 import { Helmet } from 'react-helmet';
 
 import Heading from '../../components/Heading';
@@ -33,47 +33,25 @@ const Details: React.FC<{}> = () => {
     };
 
     return (
-        <DetailsLayout title="Property list">
+        <DetailsLayout pattern={Pattern.PropertyList}>
             <Helmet>
                 <meta name="description" content="Create a property list with CSS flexbox" />
                 <meta name="keywords" content="css flexbox, property list" />
             </Helmet>
             <div className='p-8 pb-20'>
                 <BrowserFrame
-                    content={(
-                        <div
-                            style={{
-                                alignItems: 'center',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                height: '100%',
-                                justifyContent: 'center',
-                                padding: '8px',
-                            }}
-                        >
-                            <div style={{ width: '40%' }}>
-                                <Item>
-                                    <dt style={{ width: '80%' }}><Rectangle /></dt>
-                                    <dd><Circle /></dd>
-                                </Item>
-                                <Item>
-                                    <dt style={{ width: '60%' }}><Rectangle /></dt>
-                                    <dd><Circle /></dd>
-                                </Item>
-                                <Item>
-                                    <dt style={{ width: '30%' }}><Rectangle /></dt>
-                                    <dd><Circle /></dd>
-                                </Item>
-                                <Item>
-                                    <dt style={{ width: '50%' }}><Rectangle /></dt>
-                                    <dd><Circle /></dd>
-                                </Item>
-                            </div>
-                        </div>
-                    )}
-                    source={`
+html={`
 <!-- A property item -->
-<dl style="
+<dl class="container">
+    <!-- Property name -->
+    <dt>...</dt>
+
+    <!-- Property value -->
+    <dd>...</dd>
+</dl>
+`}
+css={`
+.container {
     /* Content is center horizontally */
     align-items: center;
     display: flex;
@@ -89,15 +67,39 @@ const Details: React.FC<{}> = () => {
     /* Spacing */
     margin: 0px;
     padding: 8px 0px;
-">
-    <!-- Property name -->
-    <dt>...</dt>
-
-    <!-- Property value -->
-    <dd>...</dd>
-</dl>
+}
 `}
-                />
+                >
+                    <div
+                        style={{
+                            alignItems: 'center',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            height: '100%',
+                            justifyContent: 'center',
+                            padding: '8px',
+                        }}
+                    >
+                        <div style={{ width: '40%' }}>
+                            <Item>
+                                <dt style={{ width: '80%' }}><Rectangle /></dt>
+                                <dd><Circle /></dd>
+                            </Item>
+                            <Item>
+                                <dt style={{ width: '60%' }}><Rectangle /></dt>
+                                <dd><Circle /></dd>
+                            </Item>
+                            <Item>
+                                <dt style={{ width: '30%' }}><Rectangle /></dt>
+                                <dd><Circle /></dd>
+                            </Item>
+                            <Item>
+                                <dt style={{ width: '50%' }}><Rectangle /></dt>
+                                <dd><Circle /></dd>
+                            </Item>
+                        </div>
+                    </div>
+                </BrowserFrame>
             </div>
             <section>
                 <Heading title="Use cases" />

@@ -8,3 +8,4 @@ tslint.log
 *.ts linguist-detectable=false
 *.tsx linguist-detectable=false
 *.js linguist-detectable=false
+*.json linguist-detectable=false

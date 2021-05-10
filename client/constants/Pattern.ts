@@ -17,6 +17,8 @@ enum Pattern {
     Chip = 'Chip',
     CircularNavigation = 'Circular navigation',
     CloseButton = 'Close button',
+    ColorSwatch = 'Color swatch',
+    ConcaveCorners = 'Concave corners',
     CookieBanner = 'Cookie banner',
     CornerRibbon = 'Corner ribbon',
     CurvedBackground = 'Curved background',
@@ -42,9 +44,11 @@ enum Pattern {
     HolyGrail = 'Holy grail',
     InitialAvatar = 'Initial avatar',
     InputAddon = 'Input addon',
+    InvertedCorners = 'Inverted corners',
     KeyboardShortcut = 'Keyboard shortcut',
     LayeredCard = 'Layered card',
     LinedPaper = 'Lined paper',
+    MasonryGrid = 'Masonry grid',
     MediaObject = 'Media object',
     MegaMenu = 'Mega menu',
     Menu = 'Menu',
@@ -101,6 +105,7 @@ enum Pattern {
     Voting = 'Voting',
     Watermark = 'Watermark',
     Wizard = 'Wizard',
+    ZigzagTimeline = 'Zigzag timeline',
 }
 
 export default Pattern;

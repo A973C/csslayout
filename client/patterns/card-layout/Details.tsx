@@ -17,10 +17,11 @@ const Details: React.FC<{}> = () => {
         <DetailsLayout pattern={Pattern.CardLayout}>
             <Helmet>
                 <meta name="description" content="Create a card layout with CSS flexbox" />
+                <meta name="og:description" content="Create a card layout with CSS flexbox" />
+                <meta name="twitter:description" content="Create a card layout with CSS flexbox" />
                 <meta name="keywords" content="css card layout, css flexbox, css layout" />
             </Helmet>
-            <div className='p-8 pb-20'>
-                <BrowserFrame
+            <BrowserFrame
 html={`
 <div class="cards">
     <!-- A card with given width -->
@@ -51,40 +52,39 @@ css={`
     padding-right: 8px;
 }
 `}
+            >
+                <div
+                    style={{
+                        alignItems: 'center',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        height: '100%',
+                        justifyContent: 'center',
+                        padding: '8px',
+                    }}
                 >
                     <div
                         style={{
-                            alignItems: 'center',
                             display: 'flex',
-                            flexDirection: 'column',
-                            height: '100%',
-                            justifyContent: 'center',
-                            padding: '8px',
+                            flexWrap: 'wrap',
+                            margin: '0 -8px',
+                            width: '60%',
                         }}
                     >
-                        <div
-                            style={{
-                                display: 'flex',
-                                flexWrap: 'wrap',
-                                margin: '0 -8px',
-                                width: '60%',
-                            }}
-                        >
-                            {
-                                Array(10).fill(0).map((_, index) => {
-                                    return (
-                                        <div key={index} style={{ flexBasis: '25%', marginBottom: '24px', padding: '0 8px' }}>
-                                            <Rectangle height={80} />
-                                        </div>
-                                    );
-                                })
-                            }
-                        </div>
+                        {
+                            Array(10).fill(0).map((_, index) => {
+                                return (
+                                    <div key={index} style={{ flexBasis: '25%', marginBottom: '24px', padding: '0 8px' }}>
+                                        <Rectangle height={80} />
+                                    </div>
+                                );
+                            })
+                        }
                     </div>
-                </BrowserFrame>
-            </div>
+                </div>
+            </BrowserFrame>
 
-            <RelatedPatterns patterns={[Pattern.Card, Pattern.SimpleGrid]} />
+            <RelatedPatterns patterns={[Pattern.Card, Pattern.MasonryGrid, Pattern.SimpleGrid]} />
         </DetailsLayout>
     );
 };

@@ -1,5 +1,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+    <url><loc>https://csslayout.io</loc></url>
     <url><loc>https://csslayout.io/patterns</loc></url>
+
+    <!-- Patterns -->
     <url><loc>https://csslayout.io/patterns/accordion</loc></url>
     <url><loc>https://csslayout.io/patterns/arrow-buttons</loc></url>
     <url><loc>https://csslayout.io/patterns/avatar</loc></url>
@@ -13,6 +16,8 @@
     <url><loc>https://csslayout.io/patterns/chip</loc></url>
     <url><loc>https://csslayout.io/patterns/circular-navigation</loc></url>
     <url><loc>https://csslayout.io/patterns/close-button</loc></url>
+    <url><loc>https://csslayout.io/patterns/color-swatch</loc></url>
+    <url><loc>https://csslayout.io/patterns/concave-corners</loc></url>
     <url><loc>https://csslayout.io/patterns/cookie-banner</loc></url>
     <url><loc>https://csslayout.io/patterns/corner-ribbon</loc></url>
     <url><loc>https://csslayout.io/patterns/curved-background</loc></url>
@@ -38,9 +43,11 @@
     <url><loc>https://csslayout.io/patterns/holy-grail</loc></url>
     <url><loc>https://csslayout.io/patterns/initial-avatar</loc></url>
     <url><loc>https://csslayout.io/patterns/input-addon</loc></url>
+    <url><loc>https://csslayout.io/patterns/inverted-corners</loc></url>
     <url><loc>https://csslayout.io/patterns/keyboard-shortcut</loc></url>
     <url><loc>https://csslayout.io/patterns/layered-card</loc></url>
     <url><loc>https://csslayout.io/patterns/lined-paper</loc></url>
+    <url><loc>https://csslayout.io/patterns/masonry-grid</loc></url>
     <url><loc>https://csslayout.io/patterns/media-object</loc></url>
     <url><loc>https://csslayout.io/patterns/mega-menu</loc></url>
     <url><loc>https://csslayout.io/patterns/menu</loc></url>
@@ -97,4 +104,5 @@
     <url><loc>https://csslayout.io/patterns/voting</loc></url>
     <url><loc>https://csslayout.io/patterns/watermark</loc></url>
     <url><loc>https://csslayout.io/patterns/wizard</loc></url>
+    <url><loc>https://csslayout.io/patterns/zigzag-timeline</loc></url>
 </urlset>

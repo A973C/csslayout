@@ -15,7 +15,7 @@ interface BrowserFrameProps {
 
 const BrowserFrame: React.FC<BrowserFrameProps> = ({ children, css, html }) => {
     return (
-        <div className="demo">
+        <>
             <div className="demo__html">
                 <SampleCode fullHeight={true} lang="html" code={html} />
             </div>
@@ -25,7 +25,7 @@ const BrowserFrame: React.FC<BrowserFrameProps> = ({ children, css, html }) => {
             <div className="demo__live">
                 {children}
             </div>
-        </div>
+        </>
     );
 };
 

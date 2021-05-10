@@ -12,19 +12,29 @@ import Heading from '../components/Heading';
 import Product from '../components/Product';
 import Pattern from '../constants/Pattern';
 import { ProductList } from '../constants/ProductList';
-import useDocumentTitle from '../hooks/useDocumentTitle';
 import Layout from '../layouts/Layout';
 import './explorePage.css';
 
 const ExplorePage = () => {
-    useDocumentTitle('CSS Layout ∙ Explore');
     const numPatterns = Object.keys(Pattern).length;
 
     return (
         <Layout>
             <Helmet>
+                <title>CSS Layout ∙ Patterns</title>
+                <meta name="title" content="CSS Layout ∙ Patterns" />
                 <meta name="description" content="CSS layouts and patterns" />
                 <meta name="keywords" content="css display, css flexbox, css grid, css layouts, flex, flexbox, flexbox cheatsheet, web design, web template" />
+
+                <meta property="og:description" content="CSS layouts and patterns" />
+                <meta property="og:image" content="https://csslayout.io/assets/screenshot.png" />
+                <meta property="og:title" content="CSS Layout ∙ Patterns" />
+                <meta property="og:url" content="https://csslayout.io/patterns" />
+
+                <meta property="twitter:description" content="CSS layouts and patterns" />
+                <meta property="twitter:image" content="https://csslayout.io/assets/screenshot.png" />
+                <meta property="twitter:title" content="CSS Layout ∙ Patterns" />
+                <meta property="twitter:url" content="https://csslayout.io/patterns" />
             </Helmet>
             <div className="hero">
                 <div className="container">
@@ -42,6 +52,7 @@ const ExplorePage = () => {
                             <div className="explore__collection">
                                 <CoverCard pattern={Pattern.CardLayout} />
                                 <CoverCard pattern={Pattern.HolyGrail} />
+                                <CoverCard pattern={Pattern.MasonryGrid} />
                                 <CoverCard pattern={Pattern.SameHeightColumns} />
                                 <CoverCard pattern={Pattern.Sidebar} />
                                 <CoverCard pattern={Pattern.SimpleGrid} />
@@ -108,6 +119,8 @@ const ExplorePage = () => {
                                 <CoverCard pattern={Pattern.Card} />
                                 <CoverCard pattern={Pattern.Centering} />
                                 <CoverCard pattern={Pattern.CloseButton} />
+                                <CoverCard pattern={Pattern.ColorSwatch} />
+                                <CoverCard pattern={Pattern.ConcaveCorners} />
                                 <CoverCard pattern={Pattern.CookieBanner} />
                                 <CoverCard pattern={Pattern.CornerRibbon} />
                                 <CoverCard pattern={Pattern.CurvedBackground} />
@@ -124,6 +137,7 @@ const ExplorePage = () => {
                                 <CoverCard pattern={Pattern.FolderStructure} />
                                 <CoverCard pattern={Pattern.FullBackground} />
                                 <CoverCard pattern={Pattern.InitialAvatar} />
+                                <CoverCard pattern={Pattern.InvertedCorners} />
                                 <CoverCard pattern={Pattern.KeyboardShortcut} />
                                 <CoverCard pattern={Pattern.LayeredCard} />
                                 <CoverCard pattern={Pattern.LinedPaper} />
@@ -149,6 +163,7 @@ const ExplorePage = () => {
                                 <CoverCard pattern={Pattern.VideoBackground} />
                                 <CoverCard pattern={Pattern.Voting} />
                                 <CoverCard pattern={Pattern.Watermark} />
+                                <CoverCard pattern={Pattern.ZigzagTimeline} />
                             </div>
                         </section>
 
